@@ -26,7 +26,7 @@ Window::Window(QWidget *parent)
 void Window::datetime_update()
 {
 	QByteArray ba = QDateTime::currentDateTime()
-		.toString("hh:mm:ss        dd.MM.yyyy ").toAscii();
+		.toString("hh:mm:ss        dd.MM.yyyy      ").toAscii();
 
 	lcd->write_string(ba.data());
 }
