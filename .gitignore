@@ -1,0 +1,13 @@
+*.[oa]
+*~
+temp/
+debug/
+release/
+spi_test
+*.pro.user
+Makefile
+Makefile.Debug
+Makefile.Release
+rpistm
+moc_*.*
+*.sh
