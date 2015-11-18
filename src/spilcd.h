@@ -1,6 +1,10 @@
 #ifndef SPILCD_H
 #define SPILCD_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define DATA				1
 #define INSTRUCTION			0
 #define LCD_CLEAR			0x01
@@ -17,5 +21,9 @@
 void SPI_LCD_Init(void);
 void SPI_LCD_write_string(const char * str,
 	unsigned char start, int len);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // SPILCD_H
