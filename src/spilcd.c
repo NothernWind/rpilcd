@@ -16,6 +16,8 @@ void spi_write(unsigned char data)
 	spi0_unidir_poll_transfer(data);
 
 	WH1602A_CS_OFF
+
+	usleep(1);
 }
 
 /*!
@@ -78,7 +80,7 @@ void SPI_LCD_Init(void)
 	spi_write(srd);
 	WH1602A_CS_OFF
 
-	msleep(100);
+	usleep(100000);
 
 	srd = 0x20;
 
