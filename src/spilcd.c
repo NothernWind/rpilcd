@@ -4,6 +4,7 @@
 #include "bcm2835/spi0.h"
 
 #include <stdio.h>
+#include <unistd.h>
 
 #define WH1602A_CS_ON		bcm2835_GPIO->GPCLR0 = GPIO_GPCLR0_GP8;
 #define WH1602A_CS_OFF		bcm2835_GPIO->GPSET0 = GPIO_GPSET0_GP8;
@@ -92,11 +93,11 @@ void SPI_LCD_Init(void)
 	spi_write(0);
 	srd = 0;
 
-	wh1602a_write(LCD_FN_SET | LCD_TWO_LINES, INSTRUCTION);
-	wh1602a_write(LCD_CTRL | LCD_ON, INSTRUCTION);
-	wh1602a_write(LCD_CLEAR, INSTRUCTION);
+	lcd_write(LCD_FN_SET | LCD_TWO_LINES, INSTRUCTION);
+	lcd_write(LCD_CTRL | LCD_ON, INSTRUCTION);
+	lcd_write(LCD_CLEAR, INSTRUCTION);
 	usleep(1600);
-	wh1602a_write(LCD_MODE_SET | LCD_SET_INC, INSTRUCTION);
+	lcd_write(LCD_MODE_SET | LCD_SET_INC, INSTRUCTION);
 }
 
 void SPI_LCD_write_string(const char * str,
